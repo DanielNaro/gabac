@@ -15,7 +15,7 @@ set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 11)
 
 # Custom CMake cache variables
-set(gabac OFF CACHE BOOL "Build shared GABAC library.")
+set(GABAC_BUILD_SHARED_LIB OFF CACHE BOOL "Build shared GABAC library.")
 message(STATUS "GABAC_BUILD_SHARED_LIB=${GABAC_BUILD_SHARED_LIB}")
 
 #==============================================================================
