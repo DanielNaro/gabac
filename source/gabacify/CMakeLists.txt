@@ -69,9 +69,11 @@ find_package(Boost 1.54.0 REQUIRED COMPONENTS regex log program_options)
 
 # Set the paths
 set(gabacify "gabacify")
-set(gabacify_source_dir ${CMAKE_SOURCE_DIR}/source/gabacify)
-set(gabacify_header_dir ${CMAKE_SOURCE_DIR}/source/gabacify)
-set(gabacify_include_dir ${CMAKE_SOURCE_DIR}/source)
+set(gabacify_source_dir ${PROJECT_SOURCE_DIR})
+set(gabacify_header_dir ${PROJECT_SOURCE_DIR})
+
+get_filename_component(PARENT_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
+set(gabacify_include_dir ${PARENT_DIR})
 
 # List all source files (alphabetically)
 set(gabacify_source_files ${gabacify_source_files} ${gabacify_source_dir}/analysis.cpp)

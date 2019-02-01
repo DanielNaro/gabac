@@ -104,9 +104,11 @@ endif()
 
 # Set the paths
 set(tests "tests")
-set(tests_source_dir ${CMAKE_SOURCE_DIR}/tests)
-set(tests_header_dir ${CMAKE_SOURCE_DIR}/tests)
-set(tests_include_dir ${CMAKE_SOURCE_DIR})
+set(tests_source_dir ${PROJECT_SOURCE_DIR})
+set(tests_header_dir ${PROJECT_SOURCE_DIR})
+get_filename_component(PARENT_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
+set(tests_include_dir ${PARENT_DIR})
+
 
 # List all source files (alphabetically)
 set(tests_source_files ${tests_source_files} ${tests_source_dir}/example_test.cpp)

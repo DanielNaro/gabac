@@ -66,9 +66,15 @@ message(STATUS "Selected build type: ${CMAKE_BUILD_TYPE}")
 
 # Set the paths
 set(gabac "gabac")
-set(gabac_source_dir ${CMAKE_SOURCE_DIR}/source/gabac)
-set(gabac_header_dir ${CMAKE_SOURCE_DIR}/source/gabac)
-set(gabac_include_dir ${CMAKE_SOURCE_DIR}/source)
+set(gabac_source_dir ${PROJECT_SOURCE_DIR})
+message("Source dir: ${gabac_source_dir}")
+set(gabac_header_dir ${PROJECT_SOURCE_DIR})
+message("Header dir: ${gabac_header_dir}")
+get_filename_component(PARENT_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
+set(gabac_include_dir ${PARENT_DIR})
+message("Include dir: ${gabac_include_dir}")
+
+
 
 # List all source files (alphabetically)
 set(gabac_source_files ${gabac_source_files} ${gabac_source_dir}/binary_arithmetic_encoder.cpp)
