@@ -123,9 +123,6 @@ set(gabac_header_files ${gabac_header_files} ${gabac_header_dir}/writer.h)
 source_group("GABAC Source Files" FILES ${gabac_source_files})
 source_group("GABAC Header Files" FILES ${gabac_header_files})
 
-# Set up the target
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
-
 if(${GABAC_BUILD_SHARED_LIB})
     message(STATUS "Configured build of GABAC as *shared* library")
     add_library(${gabac} SHARED ${gabac_source_files} ${gabac_header_files})
