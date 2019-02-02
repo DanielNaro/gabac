@@ -28,4 +28,4 @@ fi
 
 # Go to the folder of gabac.py and fire up the unit tests
 cd "$git_root_dir/source/python_api/" || exit -1
-LIBGABAC_PATH="$git_root_dir/build/libgabac.$shared_lib_extension" python -m unittest discover -v "$git_root_dir/tests/python_api/"
+LIBGABAC_PATH="$git_root_dir/build/lib/libgabac.$shared_lib_extension" python -m unittest discover -v "$git_root_dir/tests/python_api/"
