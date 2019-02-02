@@ -133,6 +133,8 @@ source_group("Tests Header Files" FILES ${tests_header_files})
 
 # Set up the target
 add_executable(${tests} EXCLUDE_FROM_ALL ${tests_source_files})
+get_filename_component(PARENT_DIR ${PROJECT_SOURCE_DIR} DIRECTORY)
+set(gabac_include_dir ${PARENT_DIR}/source/)
 target_include_directories(${tests} PRIVATE ${gabac_include_dir})
 target_link_libraries(${tests} gtest_main)
-target_link_libraries(${tests} ${gabac})
+target_link_libraries(${tests} gabac)
