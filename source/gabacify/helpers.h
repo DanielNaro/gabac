@@ -31,12 +31,6 @@ bool fileExists(
 );
 
 
-void generateByteBuffer(
-        const std::vector<uint64_t>& symbols,
-        unsigned int wordSize,
-        std::vector<unsigned char> * const buffer
-);
-
 
 void generateSymbolStream(
         const std::vector<unsigned char>& buffer,

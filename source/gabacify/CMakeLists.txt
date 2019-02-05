@@ -77,7 +77,6 @@ set(gabacify_include_dir ${PARENT_DIR})
 
 # List all source files (alphabetically)
 set(gabacify_source_files ${gabacify_source_files} ${gabacify_source_dir}/analysis.cpp)
-set(gabacify_source_files ${gabacify_source_files} ${gabacify_source_dir}/configuration.cpp)
 set(gabacify_source_files ${gabacify_source_files} ${gabacify_source_dir}/decode.cpp)
 set(gabacify_source_files ${gabacify_source_files} ${gabacify_source_dir}/encode.cpp)
 set(gabacify_source_files ${gabacify_source_files} ${gabacify_source_dir}/exceptions.cpp)
@@ -92,7 +91,6 @@ set(gabacify_header_files ${gabacify_header_files} ${gabacify_header_dir}/tmp_fi
 
 # List all header files (alphabetically)
 set(gabacify_header_files ${gabacify_header_files} ${gabacify_header_dir}/analysis.h)
-set(gabacify_header_files ${gabacify_header_files} ${gabacify_header_dir}/configuration.h)
 set(gabacify_header_files ${gabacify_header_files} ${gabacify_header_dir}/decode.h)
 set(gabacify_header_files ${gabacify_header_files} ${gabacify_header_dir}/encode.h)
 set(gabacify_header_files ${gabacify_header_files} ${gabacify_header_dir}/exceptions.h)

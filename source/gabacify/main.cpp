@@ -38,21 +38,37 @@ static int gabacify_main(
         gabacify::setLogLevel(programOptions.logLevel);
         writeCommandLine(argc, argv);
 
+        gabac::LogInfo l{&std::cout, gabac::LogInfo::LogLevel::INFO};
+        if(programOptions.logLevel == "trace") {
+            l.level = gabac::LogInfo::LogLevel::TRACE;
+        } else if(programOptions.logLevel == "debug"){
+            l.level = gabac::LogInfo::LogLevel::DEBUG;
+        } else if(programOptions.logLevel == "warning"){
+            l.level = gabac::LogInfo::LogLevel::WARNING;
+        } else if(programOptions.logLevel == "error"){
+            l.level = gabac::LogInfo::LogLevel::ERROR;
+        } else if(programOptions.logLevel == "fatal"){
+            l.level = gabac::LogInfo::LogLevel::FATAL;
+        }
+
         if (programOptions.task == "encode")
         {
             gabacify::encode(
                     programOptions.inputFilePath,
                     programOptions.analyze,
                     programOptions.configurationFilePath,
-                    programOptions.outputFilePath
+                    programOptions.outputFilePath,
+                    l
             );
         }
         else if (programOptions.task == "decode")
         {
+
             gabacify::decode(
                     programOptions.inputFilePath,
                     programOptions.configurationFilePath,
-                    programOptions.outputFilePath
+                    programOptions.outputFilePath,
+                    l
             );
         }
         else

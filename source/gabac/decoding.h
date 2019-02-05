@@ -49,13 +49,28 @@ int gabac_decode(
 
 namespace gabac {
 
+class Configuration;
+struct LogInfo;
 
-int decode(
+void generateByteBuffer(
+        const std::vector<uint64_t>& symbols,
+        unsigned int wordSize,
+        std::vector<unsigned char> * const buffer
+);
+
+int decode_core(
         const std::vector<unsigned char>& bitstream,
         const BinarizationId& binarizationId,
         const std::vector<unsigned int>& binarizationParameters,
         const ContextSelectionId& contextSelectionId,
         std::vector<int64_t> *symbols
+);
+
+int decode(
+        std::vector<unsigned char>* bytestream,
+        const gabac::Configuration& configuration,
+        const LogInfo& l,
+        std::vector<uint64_t> *const sequence
 );
 
 

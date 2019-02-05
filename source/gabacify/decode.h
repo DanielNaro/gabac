@@ -3,6 +3,7 @@
 
 
 #include <string>
+#include <gabac/configuration.h>
 
 
 namespace gabacify {
@@ -11,7 +12,8 @@ namespace gabacify {
 void decode(
         const std::string& inputFilePath,
         const std::string& configurationFilePath,
-        const std::string& outputFilePath
+        const std::string& outputFilePath,
+        const gabac::LogInfo& level
 );
 
 

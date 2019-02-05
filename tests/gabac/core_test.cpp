@@ -45,7 +45,7 @@ TEST_F(coreTest, encode){
             if (params[b] > 0)
             {
                 binpam.resize(params[b] - 1u, 1);
-                EXPECT_DEATH(gabac::encode(
+                EXPECT_DEATH(gabac::encode_core(
                         s,
                         gabac::BinarizationId(b),
                         binpam,
@@ -101,14 +101,14 @@ TEST_F(coreTest, roundTrip){
             std::cout
                     << "---> Testing binarization " + binNames[b] + " and context selection " + ctxNames[c] + "..."
                     << std::endl;
-            EXPECT_NO_THROW(gabac::encode(
+            EXPECT_NO_THROW(gabac::encode_core(
                     sym,
                     gabac::BinarizationId(b),
                     binarizationParameters[b],
                     gabac::ContextSelectionId(c),
                     &bitstream
             ));
-            EXPECT_NO_THROW(gabac::decode(
+            EXPECT_NO_THROW(gabac::decode_core(
                     bitstream,
                     gabac::BinarizationId(b),
                     binarizationParameters[b],

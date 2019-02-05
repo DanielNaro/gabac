@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include <gabac/constants.h>
+#include "gabac/configuration.h"
 
 namespace gabacify {
 
@@ -13,30 +14,8 @@ void encode(
         const std::string& inputFilePath,
         bool analyze,
         const std::string& configurationFilePath,
-        const std::string& outputFilePath
-);
-
-void appendToBytestream(
-        const std::vector<unsigned char>& bytes,
-        std::vector<unsigned char> *bytestream
-);
-
-void doDiffTransform(bool enabled,
-                            const std::vector<uint64_t>& lutTransformedSequence,
-                            std::vector<int64_t> *diffAndLutTransformedSequence
-);
-
-void doLutTransform(bool enabled,
-                           const std::vector<uint64_t>& transformedSequence,
-                           unsigned int wordSize,
-                           std::vector<unsigned char> *bytestream,
-                           std::vector<std::vector<uint64_t >> *lutSequences
-);
-
-void doSequenceTransform(const std::vector<uint64_t>& sequence,
-                                const gabac::SequenceTransformationId& transID,
-                                uint64_t param,
-                                std::vector<std::vector<uint64_t>> *transformedSequences
+        const std::string& outputFilePath,
+        const gabac::LogInfo& l
 );
 
 

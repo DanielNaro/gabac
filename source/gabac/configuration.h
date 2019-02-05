@@ -1,14 +1,14 @@
 #ifndef GABACIFY_CONFIGURATION_H_
 #define GABACIFY_CONFIGURATION_H_
 
-
+#include <ostream>
 #include <string>
 #include <vector>
 
 #include "gabac/constants.h"
 
 
-namespace gabacify {
+namespace gabac {
 
 
 struct TransformedSequenceConfiguration
@@ -21,6 +21,48 @@ struct TransformedSequenceConfiguration
     gabac::ContextSelectionId contextSelectionId;
 
     std::string toPrintableString() const;
+};
+
+class NullBuffer : public std::streambuf
+{
+ public:
+    int overflow(int c){
+        return c;
+    }
+};
+
+class NullStream : public std::ostream
+{
+ public:
+    NullStream() : std::ostream(&m_sb){
+    }
+
+ private:
+    NullBuffer m_sb;
+};
+
+struct LogInfo {
+    std::ostream *outStream;
+
+    enum class LogLevel
+    {
+        TRACE,
+        DEBUG,
+        INFO,
+        WARNING,
+        ERROR,
+        FATAL
+    };
+
+    LogLevel level;
+
+    std::ostream& log(const LogLevel& l) const{
+        static NullStream nullstr;
+        if (int(l) >= int(level)){
+            return *outStream;
+        }
+        return nullstr;
+    }
 };
 
 
